@@ -3,6 +3,7 @@ import { UIState } from './UIProvider';
 type UIDispatchType = 
 | { type: 'UI - Open Sidebar' }
 | { type: 'UI - Close Sidebar' }
+| { type: 'UI - Set isAddingEntry', payload: boolean}
 
 export const uiReducer = ( state: UIState, dispatch: UIDispatchType): UIState => {
 
@@ -17,6 +18,12 @@ export const uiReducer = ( state: UIState, dispatch: UIDispatchType): UIState =>
     return {
       ...state,
       sideMenuOpen: false
+    };
+
+  case 'UI - Set isAddingEntry':
+    return {
+      ...state,
+      isAdding: dispatch.payload
     };
 
   default:
