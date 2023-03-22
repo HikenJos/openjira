@@ -17,19 +17,19 @@ const Entries_INITIAL_STATE: EntriesState = {
   entries: [
     {
       _id:  uuidv4(),
-      description: 'Lorem Ipsum',
+      description: 'Pendiente: Lorem Ipsum',
       status: 'pending',
       createdAt: Date.now()
     },
     {
       _id:  uuidv4(),
-      description: 'Lorem Ipsum2',
+      description: 'En Progreso - Lorem Ipsum2',
       status: 'in-progress',
       createdAt: Date.now()
     },
     {
       _id:  uuidv4(),
-      description: 'Lorem Ipsum3',
+      description: 'Finalizada: Lorem Ipsum3',
       status: 'finished',
       createdAt: Date.now()
     }
