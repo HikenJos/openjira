@@ -3,7 +3,7 @@ import { Entry } from '../../interfaces';
 
 type EntriesDispatchType = 
 | { type: 'Entry - Add-Entry', payload: Entry }
-| { type: 'Entries - Holi' }
+| { type: 'Entry Entry-Updated', payload: Entry }
 
 export const EntriesReducer = ( state: EntriesState, dispatch: EntriesDispatchType): EntriesState => {
 
@@ -12,6 +12,18 @@ export const EntriesReducer = ( state: EntriesState, dispatch: EntriesDispatchTy
     return {
       ...state,
       entries: [...state.entries, dispatch.payload]
+    };
+
+  case 'Entry Entry-Updated':
+    return {
+      ...state,
+      entries: state.entries.map( entry => {
+        if(entry._id === dispatch.payload._id){
+          entry.status = dispatch.payload.status;
+          entry.description = dispatch.payload.description;
+        }
+        return entry;
+      })
     };
 
   default:
